@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,12 +18,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.TreeMap;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     ViewPager viewPager1, viewPager2;
     MyAdapter myAdapter1;
     MyAdapter2 myAdapter2;
+
+    String[] arr2 = {"APPLE","BALL","CAR","DOG","ELEPHANT"};
+    String alpha;
+    String imgnm;
+    TextView textView3;
 
     public class MyAdapter extends FragmentPagerAdapter{
         String[] arr1 = {"One","Two","Three","Four","Five"};
@@ -51,7 +61,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public class MyAdapter2 extends FragmentPagerAdapter{
-        String[] arr2 = {"APPLE","BALL","CAR","DOG","ELEPHANT"};
+        //String[] arr2 = {"APPLE","BALL","CAR","DOG","ELEPHANT"};
         public MyAdapter2(FragmentManager fm) {
             super(fm);
         }
@@ -76,7 +86,16 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    
+
+    public void getAlphaFromFrag(String ch){
+        alpha = ch;
+    }
+
+    public void setAlphaImageFromFrag(String ch){
+        imgnm = ch;
+        //textView3.setText(imgnm);
+        //Toast.makeText(MainActivity.this, ch, Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +109,7 @@ public class MainActivity extends AppCompatActivity
         myAdapter1 = new MyAdapter(getSupportFragmentManager());
         viewPager1.setAdapter(myAdapter1);
         tabLayout1.setupWithViewPager(viewPager1);
+        textView3 = (TextView) findViewById(R.id.textView3);
 
         viewPager2 = (ViewPager) findViewById(R.id.viewPager2);
         TabLayout tabLayout2 = (TabLayout) findViewById(R.id.myTab2);
@@ -97,7 +117,27 @@ public class MainActivity extends AppCompatActivity
         viewPager2.setAdapter(myAdapter2);
         tabLayout2.setupWithViewPager(viewPager2);
 
+        viewPager2.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                int i = viewPager2.getCurrentItem();
+                textView3.setText(arr2[i]);
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.hide();
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
