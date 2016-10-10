@@ -14,6 +14,7 @@ import android.widget.Toast;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
@@ -23,9 +24,9 @@ import java.util.TreeMap;
  */
 public class Fragment2 extends Fragment {
 
-    int[] images = {R.drawable.apple, R.drawable.ball, R.drawable.car, R.drawable.dog, R.drawable.elephant};
-    String[] imgname = {"Apple","Ball","Car","Dog","Elephant"};
-    LinkedHashMap<String, Integer> linkedHashMap;
+    int[] images = {R.drawable.apple, R.drawable.car, R.drawable.ball, R.drawable.elephant, R.drawable.dog};
+    String[] imgname = {"Apple","Car","Ball","Elephant","Dog"};
+    //HashMap<String, Integer> hashMap;
 
 
     public Fragment2() {
@@ -40,13 +41,13 @@ public class Fragment2 extends Fragment {
         ImageView imageView2= (ImageView) v2.findViewById(R.id.imageView2);
         TextView textView2 = (TextView) v2.findViewById(R.id.textView2);
 
-        linkedHashMap = new LinkedHashMap<String, Integer>();
+        /*hashMap = new LinkedHashMap<String, Integer>();
 
-        linkedHashMap.put("A",R.drawable.apple);
-        linkedHashMap.put("B",R.drawable.ball);
-        linkedHashMap.put("C",R.drawable.car);
-        linkedHashMap.put("D",R.drawable.dog);
-        linkedHashMap.put("E",R.drawable.elephant);
+        hashMap.put("A",R.drawable.apple);
+        hashMap.put("B",R.drawable.ball);
+        hashMap.put("C",R.drawable.car);
+        hashMap.put("D",R.drawable.dog);
+        hashMap.put("E",R.drawable.elephant);*/
 
         Bundle b = getArguments();
         int pos = b.getInt("imageposition");
@@ -55,9 +56,9 @@ public class Fragment2 extends Fragment {
 
         textView2.setText(imgname[pos]);
 
-        String alphabet = new ArrayList<String>(linkedHashMap.keySet()).get(pos);
+        //String alphabet = new ArrayList<String>(hashMap.keySet()).get(pos);
         MainActivity m = (MainActivity) getActivity();
-        m.setAlphaImageFromFrag(alphabet);
+        //m.setAlphaImageFromFrag(alphabet);
 
         return v2;
     }

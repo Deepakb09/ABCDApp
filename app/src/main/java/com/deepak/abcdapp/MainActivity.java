@@ -18,6 +18,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,13 +31,15 @@ public class MainActivity extends AppCompatActivity
     MyAdapter myAdapter1;
     MyAdapter2 myAdapter2;
 
-    String[] arr2 = {"APPLE","BALL","CAR","DOG","ELEPHANT"};
-    String alpha;
+    String[] arr2 = {"Apple","Car","Ball","Elephant","Dog"};
+    String[] arr1 = {"A","B","C","D","E"};
+    String alpha1, alpha2;
     String imgnm;
     TextView textView3;
+    CheckBox checkBox2;
 
     public class MyAdapter extends FragmentPagerAdapter{
-        String[] arr1 = {"One","Two","Three","Four","Five"};
+        //String[] arr1 = {"A","B","C","D","E"};
         public MyAdapter(FragmentManager fm) {
             super(fm);
         }
@@ -61,7 +65,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public class MyAdapter2 extends FragmentPagerAdapter{
-        //String[] arr2 = {"APPLE","BALL","CAR","DOG","ELEPHANT"};
+        //String[] arr2 = {"Apple","Car","Ball","Elephant","Dog"};
         public MyAdapter2(FragmentManager fm) {
             super(fm);
         }
@@ -86,11 +90,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-
-    public void getAlphaFromFrag(String ch){
-        alpha = ch;
-    }
-
     public void setAlphaImageFromFrag(String ch){
         imgnm = ch;
         //textView3.setText(imgnm);
@@ -110,6 +109,7 @@ public class MainActivity extends AppCompatActivity
         viewPager1.setAdapter(myAdapter1);
         tabLayout1.setupWithViewPager(viewPager1);
         textView3 = (TextView) findViewById(R.id.textView3);
+        checkBox2 = (CheckBox) findViewById(R.id.checkbox2);
 
         viewPager2 = (ViewPager) findViewById(R.id.viewPager2);
         TabLayout tabLayout2 = (TabLayout) findViewById(R.id.myTab2);
@@ -117,7 +117,53 @@ public class MainActivity extends AppCompatActivity
         viewPager2.setAdapter(myAdapter2);
         tabLayout2.setupWithViewPager(viewPager2);
 
+        viewPager1.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+                int i = viewPager1.getCurrentItem();
+                //textView3.setText(arr1[i]);
+                alpha1 = arr1[i];
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
+
         viewPager2.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                @Override
+                public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                    int i = viewPager2.getCurrentItem();
+                    alpha2 = arr2[i];
+                    if (alpha1.equals(String.valueOf(alpha2.charAt(0)))) {
+                        checkBox2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                            @Override
+                            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                                if (checkBox2.isChecked()) {
+                                    Toast.makeText(MainActivity.this, "Matched Succesfully\n"+alpha1+"\n"+alpha2, Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                    }
+                    checkBox2.setChecked(false);
+                }
+                @Override
+                public void onPageSelected(int position) {
+                }
+
+                @Override
+                public void onPageScrollStateChanged(int state) {
+
+                }
+            });
+
+        /*viewPager2.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 int i = viewPager2.getCurrentItem();
@@ -133,7 +179,7 @@ public class MainActivity extends AppCompatActivity
             public void onPageScrollStateChanged(int state) {
 
             }
-        });
+        });*/
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

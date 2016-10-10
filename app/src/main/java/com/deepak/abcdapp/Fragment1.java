@@ -36,7 +36,7 @@ public class Fragment1 extends Fragment {
         String alph = alpha[pos];
         //imageView.setImageResource(images[pos]);
         MainActivity m = (MainActivity) getActivity();
-        m.getAlphaFromFrag(alph);
+        //m.getAlphaFromFrag(alph);
 
         return v;
     }
