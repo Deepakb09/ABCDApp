@@ -14,7 +14,7 @@ import android.widget.TextView;
  * A simple {@link Fragment} subclass.
  */
 public class Fragment1 extends Fragment {
-    String[] alpha = {"A","B","C","D","E"};
+    String[] alpha = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
 
     public Fragment1() {
         // Required empty public constructor

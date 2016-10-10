@@ -31,8 +31,10 @@ public class MainActivity extends AppCompatActivity
     MyAdapter myAdapter1;
     MyAdapter2 myAdapter2;
 
-    String[] arr2 = {"Apple","Car","Ball","Elephant","Dog"};
-    String[] arr1 = {"A","B","C","D","E"};
+    String[] arr2 = {"Apple","Car","Ball","Elephant","Dog","Goat","House","Fish","Kite","IceCream","Jug","Nest",
+                     "Lion","Monkey","Parrot","Queen","Orange","Rainbow","Tiger","Sun","Watch","Violin",
+                     "X-Mas Tree","Umbrella","Zebra","Yak"};
+    String[] arr1 = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
     String alpha1, alpha2;
     String imgnm;
     TextView textView3;
@@ -55,7 +57,7 @@ public class MainActivity extends AppCompatActivity
 
         @Override
         public int getCount() {
-            return 5;
+            return 26;
         }
 
         @Override
@@ -81,7 +83,7 @@ public class MainActivity extends AppCompatActivity
 
         @Override
         public int getCount() {
-            return 5;
+            return 26;
         }
 
         @Override
@@ -122,9 +124,8 @@ public class MainActivity extends AppCompatActivity
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
                 int i = viewPager1.getCurrentItem();
-                //textView3.setText(arr1[i]);
                 alpha1 = arr1[i];
-
+                checkBox2.setChecked(false);
             }
 
             @Override
@@ -140,18 +141,24 @@ public class MainActivity extends AppCompatActivity
                 @Override
                 public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                     int i = viewPager2.getCurrentItem();
+                    String temp = alpha1;
                     alpha2 = arr2[i];
                     if (alpha1.equals(String.valueOf(alpha2.charAt(0)))) {
                         checkBox2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                             @Override
                             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                                 if (checkBox2.isChecked()) {
-                                    Toast.makeText(MainActivity.this, "Matched Succesfully\n"+alpha1+"\n"+alpha2, Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(MainActivity.this, "Matched\n"+alpha1+" for "+alpha2, Toast.LENGTH_SHORT).show();
+                                    if (alpha1.equals(String.valueOf(alpha2.charAt(0))))
+                                    textView3.setText(alpha1+" for "+alpha2);
+                                    else
+                                        textView3.setText("Not a correct match");
                                 }
                             }
                         });
                     }
                     checkBox2.setChecked(false);
+                    textView3.setText(" ");
                 }
                 @Override
                 public void onPageSelected(int position) {

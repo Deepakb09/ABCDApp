@@ -16,7 +16,7 @@
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="0.4"
         android:id="@+id/viewPager1"/>
 
     <android.support.design.widget.TabLayout
@@ -43,7 +43,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.5"
+        android:layout_weight="0.3"
         android:id="@+id/textView3"
-        android:hint="Passed Data here"/>
+        android:hint="Start Learning"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        android:textColor="@color/TextColor"
+        android:gravity="center"/>
 </LinearLayout>

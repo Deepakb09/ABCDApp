@@ -11,7 +11,8 @@
         android:text="A"
         android:textSize="100sp"
         android:gravity="center"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/Frag1TextColor"/>
     <!--<ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
