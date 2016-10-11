@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity
     MyAdapter myAdapter1;
     MyAdapter2 myAdapter2;
 
-    String[] arr2 = {"Apple","Car","Ball","Elephant","Dog","Goat","House","Fish","Kite","IceCream","Jug","Nest",
-                     "Lion","Monkey","Parrot","Queen","Orange","Rainbow","Tiger","Sun","Watch","Violin",
-                     "X-Mas Tree","Umbrella","Zebra","Yak"};
+    String[] arr2 = {"Apple","Car","Ball","Elephant","Dog","Fish","House","Goat","Kite","IceCream","Jug","Nest",
+                    "Lion","Monkey","Parrot","Queen","Orange","Rainbow","Tiger","Sun","Watch","Umbrella",
+                    "X-Mas Tree","Violin","Zebra","Yak"};
     String[] arr1 = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
     String alpha1, alpha2;
     String imgnm;

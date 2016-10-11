@@ -25,13 +25,13 @@ import java.util.TreeMap;
 public class Fragment2 extends Fragment {
 
     int[] images = {R.drawable.apple, R.drawable.car, R.drawable.ball, R.drawable.elephant, R.drawable.dog,
-            R.drawable.goat, R.drawable.house, R.drawable.fish, R.drawable.kite, R.drawable.icecream,
+            R.drawable.fish, R.drawable.house, R.drawable.goat, R.drawable.kite, R.drawable.icecream,
             R.drawable.jug, R.drawable.nest, R.drawable.lion, R.drawable.monkey, R.drawable.parrot,
             R.drawable.queen, R.drawable.orange, R.drawable.rainbow, R.drawable.tiger, R.drawable.sun,
-            R.drawable.watch, R.drawable.violin, R.drawable.xmastree, R.drawable.umbrella, R.drawable.zebra, R.drawable.yak};
-    String[] imgname = {"Apple","Car","Ball","Elephant","Dog","Goat","House","Fish","Kite","IceCream","Jug","Nest",
-                        "Lion","Monkey","Parrot","Queen","Orange","Rainbow","Tiger","Sun","Watch","Violin",
-                        "X-Mas Tree","Umbrella","Zebra","Yak"};
+            R.drawable.watch, R.drawable.umbrella, R.drawable.xmastree, R.drawable.violin, R.drawable.zebra, R.drawable.yak};
+    String[] imgname = {"Apple","Car","Ball","Elephant","Dog","Fish","House","Goat","Kite","IceCream","Jug","Nest",
+                        "Lion","Monkey","Parrot","Queen","Orange","Rainbow","Tiger","Sun","Watch","Umbrella",
+                        "X-Mas Tree","Violin","Zebra","Yak"};
 
     //HashMap<String, Integer> hashMap;
 
